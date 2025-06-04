@@ -31,13 +31,13 @@
   <section id="about">
     <h1>About us</h1>
     <p>
-Fast, Wet & Wild is the ultimate underground techno party experience that thrives on raw energy, sweaty dance floors, and relentless beats. We bring together a fierce blend of speed garage, hard house, trance, and techno that pushes boundaries and keeps the crowd moving all night long.
+Fast, Wet & Wild is the ultimate underground techno party experience that thrives on raw energy, sweaty dance floors, and relentless beats. We bring together a fierce blend of speed garage, hard house, trance, en techno die grenzen verlegt en de menigte de hele nacht in beweging houdt.
 
-Our residents and special guests don’t just play music — they create an atmosphere where every moment is charged with intensity. This is a place where you can lose yourself in the music, connect with like-minded ravers, and embrace the wild side of the night.
+Onze residents en special guests draaien niet alleen muziek — ze creëren een atmosfeer waar ieder moment geladen is met intensiteit. Dit is een plek waar je jezelf kunt verliezen in de muziek, verbinden met gelijkgestemde ravers, en de wilde kant van de nacht omarmen.
 
-Whether we take over a club, warehouse, or any other venue, Fast, Wet & Wild always delivers an unforgettable night fueled by passion and pure sound. No breaks, no compromises — just nonstop dancing, drenched floors, and an electric vibe that lingers long after the last track fades.
+Of we nu een club, loods, of een andere locatie overnemen, Fast, Wet & Wild levert altijd een onvergetelijke avond vol passie en puur geluid. Geen pauzes, geen concessies — alleen non-stop dansen, doorweekte vloeren, en een elektrische vibe die nog lang nazindert nadat het laatste nummer is afgelopen.
 
-FWW is more than just a party. It’s a community, a movement, and an experience that celebrates the raw power of underground electronic music. Ready to dive into the chaos? Join us and be part of something wild.
+FWW is meer dan een party. Het is een community, een beweging, en een ervaring die de rauwe kracht van underground elektronische muziek viert. Klaar om in de chaos te duiken? Doe mee en maak deel uit van iets geweldigs.
     </p>
   </section>
 
@@ -49,14 +49,23 @@ FWW is more than just a party. It’s a community, a movement, and an experience
       <!-- DJ 1 -->
       <div class="dj-card">
         <div class="image-wrapper">
-          <img src="imgs/randy.png" alt="DJ Almazar" />
+          <!-- 1) Standaard-afbeelding -->
+          <img class="dj-thumb" src="imgs/randy.png" alt="DJ Almazar" />
+
+          <!-- 2) Verborgen video (pad aanpassen naar je eigen bestand) -->
+          <video class="dj-video" preload="metadata" muted>
+            <source src="imgs/WhatsApp Video 2025-02-16 at 23.44.51.mp4" type="video/mp4" />
+          </video>
+
           <div class="dj-overlay">
             <div class="icons-left">
               <a href="#"><img src="imgs/ig-logo.svg" alt="Instagram" /></a>
               <a href="#"><img src="imgs/soundcloud-logo.svg" alt="SoundCloud" /></a>
             </div>
             <div class="icon-right">
-              <a href="#"><img src="imgs/playbutton.svg" alt="Play" /></a>
+
+              <!-- Class "play-btn" toegevoegd voor de eventlistener -->
+              <a href="#" class="play-btn"><img src="imgs/playbutton.svg" alt="Play" /></a>
             </div>
           </div>
         </div>
@@ -69,14 +78,21 @@ FWW is more than just a party. It’s a community, a movement, and an experience
       <!-- DJ 2 -->
       <div class="dj-card">
         <div class="image-wrapper">
-          <img src="imgs/timo.png" alt="Jaques Stuc" />
+          <!-- 1) Standaard-afbeelding -->
+          <img class="dj-thumb" src="imgs/timo.png" alt="Jaques Stuc" />
+
+          <!-- 2) Verborgen video -->
+          <video class="dj-video" preload="metadata" muted>
+            <source src="imgs/WhatsApp Video 2025-02-16 at 23.44.51.mp4" type="video/mp4" />
+          </video>
+
           <div class="dj-overlay">
             <div class="icons-left">
               <a href="#"><img src="imgs/ig-logo.svg" alt="Instagram" /></a>
               <a href="#"><img src="imgs/soundcloud-logo.svg" alt="SoundCloud" /></a>
             </div>
             <div class="icon-right">
-              <a href="#"><img src="imgs/playbutton.svg" alt="Play" /></a>
+              <a href="#" class="play-btn"><img src="imgs/playbutton.svg" alt="Play" /></a>
             </div>
           </div>
         </div>
@@ -89,5 +105,7 @@ FWW is more than just a party. It’s a community, a movement, and an experience
     </div>
   </section>
 
+  <!-- Externe JavaScript -->
+  <script src="scripts/scripts.js"></script>
 </body>
 </html>

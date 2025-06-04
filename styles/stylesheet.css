@@ -14,7 +14,6 @@ body {
   font-family: sans-serif;
 }
 
-
 #headervid {
   position: relative;
   width: 100%;
@@ -126,6 +125,10 @@ section p {
   justify-content: center;
 }
 
+.dj-card {
+  position: relative; /* zó kan .dj-info en .dj-video ten opzichte hiervan uitlijnen */
+}
+
 .image-wrapper {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
@@ -133,14 +136,11 @@ section p {
   width: 400px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
   transition: transform 0.3s ease;
+  position: relative; /* positioneringscontext voor dj-video */
 }
 
 .dj-card:hover {
   transform: translateY(-5px);
-}
-
-.image-wrapper {
-  position: relative;
 }
 
 .image-wrapper img {
@@ -151,7 +151,7 @@ section p {
   border-top-right-radius: 20px;
 }
 
-/* Overlay container */
+/* Overlay container (play-knop + iconen) */
 .dj-overlay {
   position: absolute;
   bottom: 20px;
@@ -161,6 +161,7 @@ section p {
   justify-content: space-between;
   align-items: flex-end;
   pointer-events: none;
+  z-index: 3; /* boven de video */
 }
 
 .dj-overlay a {
@@ -178,14 +179,16 @@ section p {
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.6));
 }
 
+/* DJ-info (bovenop de kaart) */
 .dj-info {
-text-align: left;
-position: absolute;     
-bottom: 80px;           
-left: 25px;
-right: 25px;
-z-index: 3;             
-text-shadow: 0 0 5px rgba(0,0,0,0.6); 
+  padding-left: 40px;
+  text-align: left;
+  position: absolute;     
+  bottom: 80px;           
+  left: 25px;
+  right: 25px;
+  z-index: 4;             
+  text-shadow: 0 0 5px rgba(0,0,0,0.6); 
 }
 
 .dj-info h3 {
@@ -200,7 +203,111 @@ text-shadow: 0 0 5px rgba(0,0,0,0.6);
   color: #ccc;
 }
 
-.dj-card {
-  position: relative;
+/* ===== Toegevoegd voor video ===== */
+.dj-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: none;
+  z-index: 2; /* onder de overlay, boven de afbeelding */
 }
+
+.image-wrapper {
+  position: relative; /* nodig zodat .dj-video absoluut binnen deze wrapper blijft hangen */
+}
+
+.dj-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.dj-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: none;   /* verborgen totdat JS hem op “block” zet */
+  z-index: 2;      /* onder de overlay, boven de img */
+}
+
+.dj-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 3;      /* moet boven de video liggen zodat de play-knop klikbaar blijft */
+}
+.dj-overlay a {
+  pointer-events: auto;
+}
+
+.dj-info {
+  position: absolute;
+  bottom: 80px;
+  left: 25px;
+  right: 25px;
+  z-index: 4;      /* boven alles uit */
+  text-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+
+.dj-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: none;   /* Initially hidden */
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;      /* Under the overlay (z-index 3), above the image */
+}
+
+
+.image-wrapper {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 400px;
+  min-height: 300px; /* Add this line */
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.dj-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 300px; /* Add this line */
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: none;
+  z-index: 2;
+}
+
+
+
 
